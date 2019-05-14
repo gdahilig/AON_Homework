@@ -88,4 +88,12 @@ class SetCommand: CommandBase {
     private func isNumeric(a: String) -> Bool {
         return Double(a) != nil
     }
+    
+    override func execute(store data : inout [String:ObjectModel]) {
+        guard let name = self.varName else {
+            print("Error")
+            return
+        }
+        data[name] = self.obj
+    }
 }

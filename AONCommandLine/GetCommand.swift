@@ -61,4 +61,32 @@ class GetCommand: CommandBase {
         
         return nil
     }
+    
+    override func execute(store data : inout [String:ObjectModel]) {
+        guard let name = self.varName else {
+            print("Error")
+            return
+        }
+        if name == "*" {
+            // Print map
+            self.printMap(data)
+        }
+        else if let obj = data[name] {
+            print("\(name) = \(obj.value)")
+        }
+        else {
+            print("variable '\(name)' does not exist.")
+        }
+    }
+    
+    private func printMap(_ data : [String:ObjectModel]) {
+        if data.count == 0 {
+            print("No values stored")
+        }
+        else {
+            for (_, obj) in data {
+                print(obj.describe())
+            }
+        }
+    }
 }

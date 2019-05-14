@@ -15,27 +15,31 @@ class MainProgram {
     func staticMode() {
         consoleIO.printUsage()
     }
-    
+    /// main command loop
+    /// reads in a command, sends it out to get process.
     func interactiveMode() {
-        var input = ""
+        var input = "quit"
         let cmdProcessor = CommandProccessor()
+        print("Enter command ")
+        print("or 'quit' to exit")
+        print(">")
+        if let _input = readLine() {
+            input = _input
+        }
         
-        while input != "quit" {
+        while input != "quit" && input.count > 0 {
+            // Process Command
+            let result = cmdProcessor.Process(input)
+            if result != .Parse_Success {
+                print("Command error: \(result)")
+            }
             
             print("> ")
-            
             if let _input = readLine() {
                 input = _input
             } else {
                 continue
             }
-            
-            // Process Command
-            let result = cmdProcessor.Parse(input)
-            if result != .Parse_Success {
-                print("Command error: \(result)")
-            }
-            
         }
         print("exiting...")
     }
