@@ -19,7 +19,8 @@ To output all values currently stored, use the asterisk (i.e. '*'):
 ```
 get *
 ```
-Return```
+Returns
+```
 'y' = 1234
 'x' = 'asdfasdf'
 >
