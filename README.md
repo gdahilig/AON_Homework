@@ -47,7 +47,7 @@ Returns
 This project is implented with Swift 5 as a command line appliction and requires Xcode v.10.2 to compile and run. As a command line applicaton it only does standard i/o and is run in a terminal window.  No OS-specific interface is used.
 
 ## Main Classes
-Although the language used is Swift, it is simple enough that most programmers can understand.  One exception is the use of the Regular Expression classes which is particular to the Swift runtime. The regular expression themselves uses standard regex constructs and are easily verified (see unit test and also see any regex parser on the net like: https://regex101.com
+Although the language used is Swift, it is simple enough that most programmers can understand.  One exception is the use of the Regular Expression classes which is particular to the Swift runtime. The regular expression themselves are standard regex constructs and are easily verified (see unit tests and also see any regex parser on the net like: https://regex101.com
 
 Here are the primary classes that comprise this project:
 * Main Program
@@ -56,6 +56,9 @@ Here are the primary classes that comprise this project:
 * Get Command
 * Set Command
 * ObjectModel
+
+### Main Program
+The main program class implements the user input loop.  It receives user input,  sends it to the CommandProcessor for processing.  Once the input has been processed, it prompts the user ('>') for another command.  This continues until the user enters 'quit'.
 
 ### Command Processor
 
