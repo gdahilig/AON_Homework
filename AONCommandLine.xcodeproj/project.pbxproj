@@ -107,10 +107,10 @@
 			children = (
 				13C8519B2284DEF20098D75F /* main.swift */,
 				13C851A22284E0560098D75F /* MainProgram.swift */,
+				B56929E22288B97E0075016F /* CommandProcessor.swift */,
 				B56929E42288BA6C0075016F /* CommandBase.swift */,
 				B56929E62288EC020075016F /* GetCommand.swift */,
 				B56929E92288EC350075016F /* SetCommand.swift */,
-				B56929E22288B97E0075016F /* CommandProcessor.swift */,
 				B56929F4228A40340075016F /* ObjectModel.swift */,
 			);
 			path = AONCommandLine;
