@@ -33,6 +33,7 @@ Note: String values are quoted (i.e. 'This is a string') whereas integers are no
 The Set command stores integers or strings. The commands:
 ```
 set y=1234
+set x=asdfasdf
 get *
 ```
 Returns
