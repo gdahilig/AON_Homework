@@ -47,6 +47,6 @@ class ConsoleIO {
 
 
 let mainProgram = MainProgram()
-//mainProgram.interactiveMode()
-let console = RegExTester()
-console.testGet()
+mainProgram.interactiveMode()
+//let console = RegExTester()
+//console.testGet()

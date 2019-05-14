@@ -18,21 +18,26 @@ class MainProgram {
     
     func interactiveMode() {
         var input = ""
+        let cmdProcessor = CommandProccessor()
+        
         while input != "quit" {
             
             print("> ")
             
             if let _input = readLine() {
-                print("output :",input)
                 input = _input
             } else {
                 continue
             }
+            
+            // Process Command
+            let result = cmdProcessor.Parse(input)
+            if result != .Parse_Success {
+                print("Command error: \(result)")
+            }
+            
         }
         print("exiting...")
     }
-    
-    
-
 }
 
