@@ -8,12 +8,33 @@ Get - Returns value of a variable
 
 For example, to get the value of the variable 'X'
 ```
+>
 get X
 'X' = 'value'
+>
+```
+To output all values currently stored, use the asterisk (i.e. '*')
+```
+>
+get *
+'y' = 1234
+'x' = 'asdfasdf'
+>
 ```
 
-Set - Sets the value of a variabe
+Note: String values are quoted (i.e. 'This is a string') whereas integers are not)
 
+
+Set - Assigns a value to a variable
+The Set command stores integers or strings.
+```
+set y=1234
+> 
+get *
+'y' = 1234
+'x' = 'asdfasdf'
+```
+>
 
 ## System Requirements
 This project is implented with Swift 5 as a command line appliction and requires Xcode v.10.2 to compile and run. As a command line applicaton it only does standard io and is run in a terminal window.  No OS-specific interfacew is used.
