@@ -1,18 +1,24 @@
 # AON_Homework
 
 ## Overview
-* Command Parser
+* Command Processor
+
 * Commands
+  * Command Base 
   * Get Command
   * Set Command
   
-## Commands
+## Command Objects
 * Get Command
 
 * Set Command
+
+## Example Session
+
 
 ## Optimizations
 
 ### Individual Command Regular Expressions
 
 ### Unit Test Improvements
+* better value recognition
