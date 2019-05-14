@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a sample project for AON.  It implements a system that stores a collection of named value pairs. Users can query the system for values and also set new values.  As currently implemented, it suppors only text and integer values.  The commands supported are:
+This is a sample project for AON.  It implements a system that stores a collection of named value pairs. Users can query the system for values and also set new values.  Currently, it only supports text and integer values.  The commands supported are:
 
 ### Get - Returns value of a variable
 
@@ -181,5 +181,5 @@ Program ended with exit code: 0
 ```
 
 ## Possible Improvements
-* Tighter regular expressions
-* Better value recognition
+* Tighter regular expressions for improved syntax verification.
+* Better value recognition to support floating point numbers.
