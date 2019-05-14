@@ -52,13 +52,15 @@ Here are the primary classes that comprise this project
 
 ### Command Processor
 
-The CommandProcessor is responsible for determining which command is entered and executing the command.  The class also defines 'dataStore' collection where all values are stored.  The dataStore objevt is a dictionary of ObjectModel objects with the variable name as the key.
+The CommandProcessor is responsible for determining which command is entered and executing the command.  The class also defines 'dataStore' collection where all values are stored.  The dataStore is a dictionary of ObjectModel objects with the variable name as the key.
 
 ### CommandBase
   
 The CommandBase class is the superclass to all commands. It defines two abstract methods:
+    
     1. Execute()
     The Execute() method is an abstract method. All command subclasses my implement in order to define the action it performs. 
+    
     2. Parse()
     The Parse() method is an abstract method.  All command subclasses my implement in order to determine if input is one of its own commands.  
   
@@ -66,7 +68,7 @@ The CommandBase class is the superclass to all commands. It defines two abstract
   
 
 ### Command Objects
-The command objects rely on regular expressions to parse the command lines.  This simplifies the parsing logic.  But note that as when new command sublasses are added they can parse the command any way that is required.  
+The command objects rely on regular expressions to parse the command lines.  This simplifies the parsing logic.  But note that when new command sublasses are added, they can parse the command any way that is required beside regex.
 #### Get Command
 The get command provides a way for the user to see what is currently stored. It uses Regex to determine whether or not it get command and extract varible name paramater
     
@@ -74,7 +76,44 @@ The get command provides a way for the user to see what is currently stored. It 
 The is similar to the Get command class in thast it uses regex to verify that itis a set command and extracts the variable name and value.  It overrides Execute( to save the new values to storage.
 
 ## Example Session
+```
+usage:
+AONCommandLine
 
+SET <property name> = <value>
+  Will set the value of <property name>
+  If <property name> does not exists it is created.
+ 
+GET <property name>
+  Will return the value of <property name>
+ 
+GET *
+  Will return the all property names and their values define in no specific order.
+>
+get *
+No values stored
+> 
+geeet *
+Command error: Parse_Error_General
+> 
+get X
+variable 'X' does not exist.
+> 
+set x=123
+> 
+get x
+x = 123
+> 
+set y=Mytesting
+> 
+get *
+'x' = 123
+'y' = 'Mytesting'
+> 
+quit
+exiting...
+Program ended with exit code: 0
+```
 
 ## Unit Tests
 The unit tests are run against the following classes:
@@ -124,6 +163,7 @@ Test Suite 'All tests' passed at 2019-05-14 14:00:17.633.
 	 Executed 9 tests, with 0 failures (0 unexpected) in 0.112 (0.119) seconds
 Program ended with exit code: 0
 ```
+
 ## Possible Improvements
 * Tighter regular expressions
 * Better value recognition
