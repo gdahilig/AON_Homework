@@ -9,13 +9,12 @@
 import Cocoa
 
 class GetCommand: CommandBase {
-
     
     override init() {
         super.init()
     }
     
-    class func parse(cmd sCmd : String) -> CommandBase? {
+    override class func Parse(cmd sCmd : String) -> CommandBase? {
         
         guard let _varName = GetCommand.getName(sCmd) else {
             return nil
@@ -27,16 +26,24 @@ class GetCommand: CommandBase {
     
     private class func getName(_ cmdline: String) -> String? {
         let pattern =
+//#"""
+//(?xi)
+//(?<command>
+//(?i)(get)
+//)?(?-x: )
+//(?<name>
+//(\w+|\*)$
+//)
+//"""#
 #"""
 (?xi)
 (?<command>
 (?i)(get)
-)?(?-x: )
+)\s+
 (?<name>
-(\w+|\*)$
-)
+(\w+|\*)
+)\s*$
 """#
-        
         do {
             let regex = try NSRegularExpression(pattern: pattern, options: [])
             
@@ -46,6 +53,11 @@ class GetCommand: CommandBase {
                                             options: [],
                                             range: nsrange)
             {
+                let nsrangeCmd = match.range(withName: "command")
+                if nsrangeCmd.location == NSNotFound {
+                    return nil
+                }
+                
                 let nsrange = match.range(withName: "name")
                 if nsrange.location != NSNotFound,
                     let range = Range(nsrange, in: cmdline)
@@ -62,7 +74,7 @@ class GetCommand: CommandBase {
         return nil
     }
     
-    override func execute(store data : inout [String:ObjectModel]) {
+    override func Execute(store data : inout [String:ObjectModel]) {
         guard let name = self.varName else {
             print("Error")
             return

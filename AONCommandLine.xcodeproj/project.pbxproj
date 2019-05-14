@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		13C8519C2284DEF20098D75F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C8519B2284DEF20098D75F /* main.swift */; };
-		13C851A32284E0560098D75F /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C851A22284E0560098D75F /* Program.swift */; };
-		13C851A522875A590098D75F /* RegExTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C851A422875A590098D75F /* RegExTest.swift */; };
-		B56929DB2288B7FD0075016F /* UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56929DA2288B7FD0075016F /* UnitTests.swift */; };
-		B56929E32288B97E0075016F /* CommandProccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56929E22288B97E0075016F /* CommandProccessor.swift */; };
+		13C851A32284E0560098D75F /* MainProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C851A22284E0560098D75F /* MainProgram.swift */; };
+		B56929E32288B97E0075016F /* CommandProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56929E22288B97E0075016F /* CommandProcessor.swift */; };
 		B56929E52288BA6C0075016F /* CommandBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56929E42288BA6C0075016F /* CommandBase.swift */; };
 		B56929E72288EC020075016F /* GetCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56929E62288EC020075016F /* GetCommand.swift */; };
 		B56929E82288EC020075016F /* GetCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56929E62288EC020075016F /* GetCommand.swift */; };
@@ -21,6 +19,10 @@
 		B56929F3228A1F4A0075016F /* TestCommandProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56929F2228A1F4A0075016F /* TestCommandProcessor.swift */; };
 		B56929F5228A40340075016F /* ObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56929F4228A40340075016F /* ObjectModel.swift */; };
 		B56929F6228A40340075016F /* ObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56929F4228A40340075016F /* ObjectModel.swift */; };
+		B56929F8228B39120075016F /* TestGetCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56929F7228B39120075016F /* TestGetCommand.swift */; };
+		B56929FA228B3BF60075016F /* TestSetCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56929F9228B3BF60075016F /* TestSetCommand.swift */; };
+		B56929FF228B5D610075016F /* TestObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56929FE228B5D610075016F /* TestObjectModel.swift */; };
+		B5692A00228B60F40075016F /* CommandProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56929E22288B97E0075016F /* CommandProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,18 +50,19 @@
 /* Begin PBXFileReference section */
 		13C851982284DEF20098D75F /* AONCommandLine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AONCommandLine; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C8519B2284DEF20098D75F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		13C851A22284E0560098D75F /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
-		13C851A422875A590098D75F /* RegExTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegExTest.swift; sourceTree = "<group>"; };
+		13C851A22284E0560098D75F /* MainProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProgram.swift; sourceTree = "<group>"; };
 		B56929D82288B7FD0075016F /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B56929DA2288B7FD0075016F /* UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTests.swift; sourceTree = "<group>"; };
 		B56929DC2288B7FD0075016F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B56929E22288B97E0075016F /* CommandProccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandProccessor.swift; sourceTree = "<group>"; };
+		B56929E22288B97E0075016F /* CommandProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandProcessor.swift; sourceTree = "<group>"; };
 		B56929E42288BA6C0075016F /* CommandBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandBase.swift; sourceTree = "<group>"; };
 		B56929E62288EC020075016F /* GetCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCommand.swift; sourceTree = "<group>"; };
 		B56929E92288EC350075016F /* SetCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCommand.swift; sourceTree = "<group>"; };
 		B56929ED2289B6140075016F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B56929F2228A1F4A0075016F /* TestCommandProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCommandProcessor.swift; sourceTree = "<group>"; };
 		B56929F4228A40340075016F /* ObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectModel.swift; sourceTree = "<group>"; };
+		B56929F7228B39120075016F /* TestGetCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGetCommand.swift; sourceTree = "<group>"; };
+		B56929F9228B3BF60075016F /* TestSetCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSetCommand.swift; sourceTree = "<group>"; };
+		B56929FE228B5D610075016F /* TestObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestObjectModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +106,11 @@
 			isa = PBXGroup;
 			children = (
 				13C8519B2284DEF20098D75F /* main.swift */,
-				13C851A22284E0560098D75F /* Program.swift */,
-				13C851A422875A590098D75F /* RegExTest.swift */,
+				13C851A22284E0560098D75F /* MainProgram.swift */,
 				B56929E42288BA6C0075016F /* CommandBase.swift */,
 				B56929E62288EC020075016F /* GetCommand.swift */,
 				B56929E92288EC350075016F /* SetCommand.swift */,
-				B56929E22288B97E0075016F /* CommandProccessor.swift */,
+				B56929E22288B97E0075016F /* CommandProcessor.swift */,
 				B56929F4228A40340075016F /* ObjectModel.swift */,
 			);
 			path = AONCommandLine;
@@ -117,9 +119,11 @@
 		B56929D92288B7FD0075016F /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				B56929DA2288B7FD0075016F /* UnitTests.swift */,
 				B56929DC2288B7FD0075016F /* Info.plist */,
 				B56929F2228A1F4A0075016F /* TestCommandProcessor.swift */,
+				B56929F7228B39120075016F /* TestGetCommand.swift */,
+				B56929F9228B3BF60075016F /* TestSetCommand.swift */,
+				B56929FE228B5D610075016F /* TestObjectModel.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -213,12 +217,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13C851A522875A590098D75F /* RegExTest.swift in Sources */,
-				13C851A32284E0560098D75F /* Program.swift in Sources */,
+				13C851A32284E0560098D75F /* MainProgram.swift in Sources */,
 				B56929E72288EC020075016F /* GetCommand.swift in Sources */,
 				B56929EA2288EC350075016F /* SetCommand.swift in Sources */,
 				B56929F5228A40340075016F /* ObjectModel.swift in Sources */,
-				B56929E32288B97E0075016F /* CommandProccessor.swift in Sources */,
+				B56929E32288B97E0075016F /* CommandProcessor.swift in Sources */,
 				13C8519C2284DEF20098D75F /* main.swift in Sources */,
 				B56929E52288BA6C0075016F /* CommandBase.swift in Sources */,
 			);
@@ -228,7 +231,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B56929DB2288B7FD0075016F /* UnitTests.swift in Sources */,
+				B5692A00228B60F40075016F /* CommandProcessor.swift in Sources */,
+				B56929FF228B5D610075016F /* TestObjectModel.swift in Sources */,
+				B56929F8228B39120075016F /* TestGetCommand.swift in Sources */,
+				B56929FA228B3BF60075016F /* TestSetCommand.swift in Sources */,
 				B56929EB2288EC350075016F /* SetCommand.swift in Sources */,
 				B56929F3228A1F4A0075016F /* TestCommandProcessor.swift in Sources */,
 				B56929E82288EC020075016F /* GetCommand.swift in Sources */,

@@ -10,18 +10,12 @@ import Foundation
 
 class MainProgram {
     
-    let consoleIO = ConsoleIO()
-    
-    func staticMode() {
-        consoleIO.printUsage()
-    }
     /// main command loop
     /// reads in a command, sends it out to get process.
     func interactiveMode() {
         var input = "quit"
-        let cmdProcessor = CommandProccessor()
-        print("Enter command ")
-        print("or 'quit' to exit")
+        let cmdProcessor = CommandProcessor()
+        printUsage()
         print(">")
         if let _input = readLine() {
             input = _input
@@ -42,6 +36,24 @@ class MainProgram {
             }
         }
         print("exiting...")
+    }
+    
+    func printUsage() {
+        
+        let executableName = (CommandLine.arguments[0] as NSString).lastPathComponent
+        
+        print("usage:")
+        print("\(executableName)")
+        print("")
+        print("SET <property name> = <value>")
+        print("  Will set the value of <property name>")
+        print("  If <property name> does not exists it is created.")
+        print(" ")
+        print("GET <property name>")
+        print("  Will return the value of <property name>")
+        print(" ")
+        print("GET *")
+        print("  Will return the all property names and their values define in no specific order.")
     }
 }
 

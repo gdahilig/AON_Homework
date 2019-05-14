@@ -28,10 +28,14 @@ enum CommandParseResult {
 class CommandBase: NSObject {
     var varName : String?
     var pattern : String?
-    var data  : [String:ObjectModel] = [:]
     
-    func execute(store data : inout [String:ObjectModel]) {
+    func Execute(store data : inout [String:ObjectModel]) {
         // NOP
+    }
+    
+    
+    class func Parse(cmd sCmd : String) -> CommandBase? {
+        return nil
     }
 }
 

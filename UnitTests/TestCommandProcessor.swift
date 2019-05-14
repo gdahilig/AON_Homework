@@ -9,25 +9,28 @@
 import XCTest
 
 class TestCommandProcessor: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testProcess() {
+        let cmdProcessor = CommandProcessor()
+        
+        var result = cmdProcessor.Process("get *")
+        XCTAssert(result == .Parse_Success)
+        
+        result = cmdProcessor.Process("set x=123")
+        XCTAssert(result == .Parse_Success)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testProcess_Error() {
+        let cmdProcessor = CommandProcessor()
+        var result = cmdProcessor.Process("this is not a command")
+        XCTAssert(result == .Parse_Error_General)
+        
+        result = cmdProcessor.Process("get ")
+        XCTAssert(result == .Parse_Error_General)
+        
+        result = cmdProcessor.Process("SEEET x1=2")
+        XCTAssert(result == .Parse_Error_General)
+        
+        result = cmdProcessor.Process("Geet * ")
+        XCTAssert(result == .Parse_Error_General)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

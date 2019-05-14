@@ -16,8 +16,7 @@ class SetCommand: CommandBase {
         self.obj = nil
     }
     
-    
-    class func parse(cmd sCmd : String) -> CommandBase? {
+    override class func Parse(cmd sCmd : String) -> CommandBase? {
         
         guard let params = SetCommand.getParameters(sCmd) else {
             return nil
@@ -41,7 +40,7 @@ class SetCommand: CommandBase {
 )\s*=\s*
 (?<value>
 (\w+|\*)
-)
+)\s*$
 """#
 
         do {
@@ -89,7 +88,7 @@ class SetCommand: CommandBase {
         return Double(a) != nil
     }
     
-    override func execute(store data : inout [String:ObjectModel]) {
+    override func Execute(store data : inout [String:ObjectModel]) {
         guard let name = self.varName else {
             print("Error")
             return

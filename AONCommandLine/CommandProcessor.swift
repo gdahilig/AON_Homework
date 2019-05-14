@@ -11,24 +11,19 @@
 import Foundation
 import Cocoa
 
-class CommandProccessor : NSObject {
+class CommandProcessor : NSObject {
     var  dataStore  : [String:ObjectModel] = [:]
     
     override init () {
-        let testObj =  ObjectModel(name: "me", type: .TypeString, value: "This is a TEST!")
-        dataStore[testObj.name] = testObj
-        
-        let testObj2 =  ObjectModel(name: "a number", type: .TypeNumber, value: "1234.232")
-        dataStore[testObj2.name] = testObj2
     }
     
     func Process(_ strCmd :String) -> CommandParseResult {
 
-        if let _cmd = GetCommand.parse(cmd: strCmd) {
-            _cmd.execute(store: &dataStore)
+        if let _cmd = GetCommand.Parse(cmd: strCmd) {
+            _cmd.Execute(store: &dataStore)
         }
-        else if let _cmd = SetCommand.parse(cmd: strCmd) {
-            _cmd.execute(store: &dataStore)
+        else if let _cmd = SetCommand.Parse(cmd: strCmd) {
+            _cmd.Execute(store: &dataStore)
         }
         else  {
             return .Parse_Error_General
