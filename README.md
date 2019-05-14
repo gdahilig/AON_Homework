@@ -47,9 +47,9 @@ Returns
 This project is implented with Swift 5 as a command line appliction and requires Xcode v.10.2 to compile and run. As a command line applicaton it only does standard i/o and is run in a terminal window.  No OS-specific interface is used.
 
 ## Main Classes
-Although the language is Swift, it is sufficiently simple that most programmers can understand.  One exception is the use of the Regular Expression classes which is particular to the Swift runtime. The regular expression themselves uses standard regex constructs and are easily verified (see unit test and also see any regec parser on the net like: https://regex101.com
+Although the language used is Swift, it is simple enough that most programmers can understand.  One exception is the use of the Regular Expression classes which is particular to the Swift runtime. The regular expression themselves uses standard regex constructs and are easily verified (see unit test and also see any regex parser on the net like: https://regex101.com
 
-Here are the primary classes that comprise this project
+Here are the primary classes that comprise this project:
 * Main Program
 * Command Processor
 * CommandBase
@@ -76,11 +76,20 @@ The CommandBase class is the superclass to all commands. It defines two abstract
 
 ### Command Objects
 The command objects rely on regular expressions to parse the command lines.  This simplifies the parsing logic.  But note that when new command sublasses are added, they can parse the command any way that is required beside regex.
+
 #### Get Command
 The get command provides a way for the user to see what is currently stored. It uses Regex to determine whether or not it get command and extract varible name paramater
     
 #### Set Command
-The is similar to the Get command class in thast it uses regex to verify that itis a set command and extracts the variable name and value.  It overrides Execute( to save the new values to storage.
+The is similar to the Get command class in thast it uses regex to verify that it is a set command and extracts the variable name and value.  It overrides Execute( to save the new values to storage.
+
+### ObjectModel
+The ObjectModel class stroes the particulars of each value object:
+* Name - The name of the variable and is used for the key into the dataStore dictoinary.
+* Value - All values are stored as strings.  When outputted, string values are single-quoted.
+* Type - Values are either a striung or a number.
+On initialization type is determined and set.
+
 
 ## Example Session
 ```
