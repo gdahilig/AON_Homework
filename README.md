@@ -4,7 +4,7 @@
 
 This is a sample project for AON.  It implements a system that stores a collection of named value pairs. Users can query the system for values and also set new values.  As currently implemented, it suppors only text and integer values.  The commands supported are:
 
-Get - Returns value of a variable
+### Get - Returns value of a variable
 
 For example, to get the value of the variable 'X'
 ```
@@ -25,7 +25,7 @@ get *
 Note: String values are quoted (i.e. 'This is a string') whereas integers are not)
 
 
-Set - Assigns a value to a variable
+### Set - Assigns a value to a variable
 The Set command stores integers or strings.
 ```
 set y=1234
@@ -37,44 +37,93 @@ get *
 >
 
 ## System Requirements
-This project is implented with Swift 5 as a command line appliction and requires Xcode v.10.2 to compile and run. As a command line applicaton it only does standard io and is run in a terminal window.  No OS-specific interfacew is used.
+This project is implented with Swift 5 as a command line appliction and requires Xcode v.10.2 to compile and run. As a command line applicaton it only does standard i/o and is run in a terminal window.  No OS-specific interface is used.
 
 ## Main Classes
+Although the language is Swift, it is sufficiently simple that most programmers can understand.  One exception is the use of the Regular Expression classes which is particular to the Swift runtime. The regular expression themselves uses standard regex constructs and are easily verified (see unit test and also see any regec parser on the net like: https://regex101.com
+
+Here are the primary classes that comprise this project
+* Main Program
 * Command Processor
-
-The CommandProcessor is responsible for determining which command is entered and executing the command.  
-
-* Commands
-  * CommandBase
-  
-  The CommandBase class is the superclass to all commands. It defines two abstract methods:
-    1. Execute()
-    
-         The Execute() method is an abstract method. All command subclasses my implement in order to define the action it performs. 
-    2. Parse()
-    
-         The Parse() method is an abstract method.  All command subclasses my implement in order to determine if input is one of its own commands.  
-  
-  
-  Additionally, it defines CommandParseResult values used for parsing results.
-  
-  * Get Command
-  
-    The get command provides a way for the user to see what is currently stored. It uses Regex to determine whether or not it get command and extract varible name paramater
-    
-  * Set Command
-  
-## Command Objects
+* CommandBase
 * Get Command
-
 * Set Command
+* ObjectModel
+
+### Command Processor
+
+The CommandProcessor is responsible for determining which command is entered and executing the command.  The class also defines 'dataStore' collection where all values are stored.  The dataStore objevt is a dictionary of ObjectModel objects with the variable name as the key.
+
+### CommandBase
+  
+The CommandBase class is the superclass to all commands. It defines two abstract methods:
+    1. Execute()
+    The Execute() method is an abstract method. All command subclasses my implement in order to define the action it performs. 
+    2. Parse()
+    The Parse() method is an abstract method.  All command subclasses my implement in order to determine if input is one of its own commands.  
+  
+  Additionally, it defines CommandParseResult enum values used for parsing results.
+  
+
+### Command Objects
+The command objects rely on regular expressions to parse the command lines.  This simplifies the parsing logic.  But note that as when new command sublasses are added they can parse the command any way that is required.  
+#### Get Command
+The get command provides a way for the user to see what is currently stored. It uses Regex to determine whether or not it get command and extract varible name paramater
+    
+#### Set Command
+The is similar to the Get command class in thast it uses regex to verify that itis a set command and extracts the variable name and value.  It overrides Execute( to save the new values to storage.
 
 ## Example Session
 
 
-## Optimizations
+## Unit Tests
+The unit tests are run against the following classes:
+* GetCommand
+* SetCommand
+* CommandProcessor
+* ObjectModel
 
-### Individual Command Regular Expressions
-
-### Unit Test Improvements
-* better value recognition
+Unit test results: ```Test Suite 'All tests' passed at 2019-05-14 14:00:17.633.```
+```
+Test Suite 'All tests' started at 2019-05-14 14:00:17.513
+Test Suite 'UnitTests.xctest' started at 2019-05-14 14:00:17.514
+Test Suite 'TestCommandProcessor' started at 2019-05-14 14:00:17.515
+Test Case '-[UnitTests.TestCommandProcessor testProcess]' started.
+No values stored
+Test Case '-[UnitTests.TestCommandProcessor testProcess]' passed (0.103 seconds).
+Test Case '-[UnitTests.TestCommandProcessor testProcess_Error]' started.
+Test Case '-[UnitTests.TestCommandProcessor testProcess_Error]' passed (0.001 seconds).
+Test Suite 'TestCommandProcessor' passed at 2019-05-14 14:00:17.619.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.103 (0.105) seconds
+Test Suite 'TestGetCommand' started at 2019-05-14 14:00:17.620
+Test Case '-[UnitTests.TestGetCommand testGetCmd]' started.
+Test Case '-[UnitTests.TestGetCommand testGetCmd]' passed (0.001 seconds).
+Test Case '-[UnitTests.TestGetCommand testGetCommand_WhiteSpace]' started.
+Test Case '-[UnitTests.TestGetCommand testGetCommand_WhiteSpace]' passed (0.001 seconds).
+Test Case '-[UnitTests.TestGetCommand testInvalidCommand]' started.
+Test Case '-[UnitTests.TestGetCommand testInvalidCommand]' passed (0.001 seconds).
+Test Suite 'TestGetCommand' passed at 2019-05-14 14:00:17.623.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+Test Suite 'TestObjectModel' started at 2019-05-14 14:00:17.623
+Test Case '-[UnitTests.TestObjectModel testObjectModel_describe]' started.
+Test Case '-[UnitTests.TestObjectModel testObjectModel_describe]' passed (0.001 seconds).
+Test Case '-[UnitTests.TestObjectModel testObjectModel_init]' started.
+Test Case '-[UnitTests.TestObjectModel testObjectModel_init]' passed (0.000 seconds).
+Test Suite 'TestObjectModel' passed at 2019-05-14 14:00:17.625.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.001 (0.002) seconds
+Test Suite 'TestSetCommand' started at 2019-05-14 14:00:17.626
+Test Case '-[UnitTests.TestSetCommand testSetCommand_Parse]' started.
+Test Case '-[UnitTests.TestSetCommand testSetCommand_Parse]' passed (0.005 seconds).
+Test Case '-[UnitTests.TestSetCommand testSetCommand_WhiteSpace]' started.
+Test Case '-[UnitTests.TestSetCommand testSetCommand_WhiteSpace]' passed (0.001 seconds).
+Test Suite 'TestSetCommand' passed at 2019-05-14 14:00:17.632.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.005 (0.006) seconds
+Test Suite 'UnitTests.xctest' passed at 2019-05-14 14:00:17.632.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.112 (0.118) seconds
+Test Suite 'All tests' passed at 2019-05-14 14:00:17.633.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.112 (0.119) seconds
+Program ended with exit code: 0
+```
+## Possible Improvements
+* Tighter regular expressions
+* Better value recognition
