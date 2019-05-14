@@ -6,17 +6,20 @@ This is a sample project for AON.  It implements a system that stores a collecti
 
 ### Get - Returns value of a variable
 
-For example, to get the value of the variable 'X'
+For example, to get the value of the variable 'X', the command:
 ```
->
 get X
+```
+Returns
+```
 'X' = 'value'
 >
 ```
-To output all values currently stored, use the asterisk (i.e. '*')
+To output all values currently stored, use the asterisk (i.e. '*'):
 ```
->
 get *
+```
+Return```
 'y' = 1234
 'x' = 'asdfasdf'
 >
@@ -26,11 +29,13 @@ Note: String values are quoted (i.e. 'This is a string') whereas integers are no
 
 
 ### Set - Assigns a value to a variable
-The Set command stores integers or strings.
+The Set command stores integers or strings. The commands:
 ```
 set y=1234
-> 
 get *
+```
+Returns
+```
 'y' = 1234
 'x' = 'asdfasdf'
 ```
